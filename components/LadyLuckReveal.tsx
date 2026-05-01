@@ -9,10 +9,11 @@ interface LadyLuckRevealProps {
 }
 
 const LUCK_LINES = [
-  "he didn't have a job when he met you.",
-  "within a week — two.",
-  "he doesn't believe in luck.",
-  "he believes in you, panda. 🍀",
+  "I didn't even have a job when i met you.",
+  "within a week of you walking into my life — i had two.",
+  "people call it coincidence.",
+  "but i don't believe in luck anymore.",
+  "i just believe in you, my lady luck. 🌹🫶",
 ];
 
 export default function LadyLuckReveal({ onClose }: LadyLuckRevealProps) {

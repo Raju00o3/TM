@@ -117,7 +117,7 @@ export default function PolaroidExplosion({ onAllOpened }: PolaroidExplosionProp
               pointerEvents: "none",
             }}
           >
-            pick them up, panda. all 29.
+            pick them up, Chaplii. all 29.
           </motion.div>
         )}
       </AnimatePresence>

@@ -170,7 +170,7 @@ export default function FinaleSequence() {
         </div>
       )}
 
-      {/* "there's one more thing, panda..." */}
+      {/* "there's one more thing, baby..." */}
       <AnimatePresence>
         {(phase === "text") && (
           <motion.div
@@ -185,7 +185,7 @@ export default function FinaleSequence() {
               textAlign: "center",
             }}
           >
-            there&apos;s one more thing, panda...
+            there&apos;s one more thing, baby...
           </motion.div>
         )}
       </AnimatePresence>
@@ -248,7 +248,7 @@ export default function FinaleSequence() {
               <div>
                 <strong>For:</strong> Misri{" "}
                 <span style={{ opacity: 0.6, fontSize: "0.85em" }}>
-                  (aka panda, aka jaadi, aka the girl who makes everything better)
+                  (aka panda, aka jaadi, aka Chaplii, aka dramebaaz)
                 </span>
               </div>
               <div>
@@ -318,7 +318,7 @@ export default function FinaleSequence() {
                 marginTop: 8,
               }}
             >
-              so... will you come, babyy? 🤍
+              so... will you come, babyy? ❤️
             </div>
 
             {/* Celebration punch-hole overlay */}
@@ -372,7 +372,7 @@ export default function FinaleSequence() {
               transition: "all 0.3s ease",
             }}
           >
-            yes, obviously 🤍
+            yes, obviously 🥰
           </motion.button>
 
           {/* Running button */}
@@ -417,7 +417,7 @@ export default function FinaleSequence() {
             May 2. our first date.
             <br />
             <span className="font-dancing" style={{ fontSize: "0.75em", fontWeight: 700 }}>
-              can&apos;t wait, panda. 🤍
+              can&apos;t wait, misu. ❤️
             </span>
           </motion.div>
         )}

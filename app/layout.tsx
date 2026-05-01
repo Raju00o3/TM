@@ -33,8 +33,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "For Misri 🤍",
-  description: "Something special, just for you panda.",
+  title: "For Misri ❤️",
+  description: "Something special, just for you misu.",
   robots: "noindex, nofollow",
 };
 

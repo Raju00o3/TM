@@ -8,7 +8,7 @@ interface SorryLetterProps {
   onClose: () => void;
 }
 
-const SORRY_TEXT = `panda.
+const SORRY_TEXT = `misu.
 
 I know I've gone quiet sometimes when I should've talked.
 I overthink — you know this about me — and sometimes I disappear into my own head
@@ -24,7 +24,7 @@ I'm sorry for that. Genuinely.
 I'm not great at saying this stuff out loud.
 So I built this instead.
 
-For you, babyy. Always. 🤍
+For you, babyy. Always. ❤️
 
 — pegu`;
 

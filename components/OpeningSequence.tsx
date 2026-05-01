@@ -253,7 +253,7 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
             textAlign: "center",
           }}
         >
-          months of you, panda.
+          months of you, my love.
         </div>
       </div>
     </div>

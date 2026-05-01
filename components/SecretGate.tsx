@@ -79,8 +79,8 @@ export default function SecretGate({ onUnlocked }: SecretGateProps) {
       ref={containerRef}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-      transition={{ duration: 0.8, exit: { duration: 1.2 } }}
+      exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)", transition: { duration: 1.2 } }}
+      transition={{ duration: 0.8 }}
       onClick={handleContainerClick}
       style={{
         position: "fixed",
@@ -196,7 +196,7 @@ export default function SecretGate({ onUnlocked }: SecretGateProps) {
                 padding: "0 20px",
               }}
             >
-              this is just for you, panda.
+              this is just for you, misudi.
               <br />
               <span style={{ opacity: 0.6, fontSize: "clamp(16px, 2vw, 20px)" }}>
                 type the word only you know.
@@ -300,7 +300,7 @@ export default function SecretGate({ onUnlocked }: SecretGateProps) {
                     marginTop: -10,
                   }}
                 >
-                  hint: your favorite nickname... 🤍
+                  hint: your favorite nickname... 💕
                 </motion.p>
               )}
             </AnimatePresence>
@@ -370,7 +370,7 @@ export default function SecretGate({ onUnlocked }: SecretGateProps) {
                 textAlign: "center",
               }}
             >
-              welcome in, panda. 🤍
+              welcome in, baby. ❤️
             </motion.p>
           </motion.div>
         )}
