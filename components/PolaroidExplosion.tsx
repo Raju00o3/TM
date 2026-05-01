@@ -7,6 +7,7 @@ import { getRandomPosition, getRandomRotation, getRandomSpring, shuffleArray } f
 import Polaroid from "./Polaroid";
 import SpecialPolaroid from "./SpecialPolaroid";
 import CounterDisplay from "./CounterDisplay";
+import CanvasBackground from "./CanvasBackground";
 
 interface PolaroidExplosionProps {
   onAllOpened: () => void;
@@ -90,9 +91,11 @@ export default function PolaroidExplosion({ onAllOpened }: PolaroidExplosionProp
         position: "fixed",
         inset: 0,
         overflow: "hidden",
-        background: "#0a0a0a",
       }}
     >
+      {/* Premium animated background */}
+      <CanvasBackground openedCount={count} />
+
       {/* Counter */}
       <CounterDisplay count={count} total={29} />
 
