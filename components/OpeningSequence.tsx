@@ -14,6 +14,7 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
   const messageRef = useRef<HTMLDivElement>(null);
   const fourContainerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const heartSvgRef = useRef<SVGSVGElement>(null);
   const monthsTextRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"name" | "message" | "four" | "shatter" | "done">("name");
 
@@ -27,13 +28,40 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
       },
     });
 
-    // Phase 1: "Misri." letter by letter
+    // Phase 1: Premium Sketch Heart + "hi misudi."
+    const paths = heartSvgRef.current?.querySelectorAll("path");
+    if (paths) {
+      paths.forEach((path) => {
+        const length = path.getTotalLength();
+        gsap.set(path, {
+          strokeDasharray: length,
+          strokeDashoffset: length,
+        });
+      });
+      // Sketch drawing effect
+      tl.to(paths, {
+        strokeDashoffset: 0,
+        duration: 2.2,
+        ease: "power2.inOut",
+        stagger: 0.2, // Each line draws slightly after the previous
+      }, 0);
+      
+      // Heartbeat pulse after drawing
+      tl.to(heartSvgRef.current, {
+        scale: 1.05,
+        duration: 1.2,
+        yoyo: true,
+        repeat: 1,
+        ease: "sine.inOut"
+      }, 1.5);
+    }
+
     if (nameRef.current) {
-      const text = "Misri.";
+      const text = "Hi misudi.";
       nameRef.current.innerHTML = "";
       text.split("").forEach((char) => {
         const span = document.createElement("span");
-        span.textContent = char;
+        span.textContent = char === " " ? "\u00A0" : char;
         span.style.opacity = "0";
         span.style.display = "inline-block";
         nameRef.current!.appendChild(span);
@@ -45,13 +73,13 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
         duration: 0.1,
         stagger: 0.08,
         ease: "power2.out",
-      });
+      }, 0.5); // start typing slightly after heart starts drawing
 
-      // Pause on name
-      tl.to({}, { duration: 1 });
+      // Pause to let them read inside the drawn heart
+      tl.to({}, { duration: 2.5 });
 
-      // Fade out name
-      tl.to(nameRef.current, {
+      // Fade out name and heart
+      tl.to([nameRef.current, heartSvgRef.current], {
         opacity: 0,
         duration: 0.5,
         ease: "power2.inOut",
@@ -182,19 +210,84 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
         overflow: "hidden",
       }}
     >
-      {/* Phase 1: Name */}
+      {/* Phase 1: Heart and Name */}
       <div
-        ref={nameRef}
-        className="font-cormorant"
         style={{
           position: "absolute",
-          fontSize: "clamp(48px, 8vw, 96px)",
-          fontWeight: 600,
-          color: "#f5f0e8",
-          letterSpacing: 4,
-          display: phase === "name" ? "block" : "none",
+          display: phase === "name" ? "flex" : "none",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: "100%",
         }}
-      />
+      >
+        <div
+          style={{
+            position: "absolute",
+            width: "clamp(300px, 80vw, 600px)",
+            height: "clamp(300px, 80vw, 600px)",
+            background: "radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 65%)",
+            borderRadius: "50%",
+            zIndex: 0,
+          }}
+        />
+
+        <svg
+          ref={heartSvgRef}
+          width="min(90vw, 500px)"
+          height="min(90vw, 500px)"
+          viewBox="0 0 400 400"
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            filter: "drop-shadow(0 0 12px rgba(201,168,76,0.4))",
+          }}
+        >
+          {/* Layer 1: Faint outer sketch */}
+          <path
+            d="M 200 125 C 150 45 30 75 30 165 C 30 255 200 365 200 365 C 200 365 370 255 370 165 C 370 75 250 45 200 125 Z"
+            fill="none"
+            stroke="#c9a84c"
+            strokeWidth="1.5"
+            opacity="0.3"
+            strokeLinecap="round"
+          />
+          {/* Layer 2: Main crisp core line */}
+          <path
+            d="M 200 130 C 155 50 35 80 35 170 C 35 260 200 370 200 370 C 200 370 365 260 365 170 C 365 80 245 50 200 130 Z"
+            fill="none"
+            stroke="#f5f0e8"
+            strokeWidth="2.5"
+            opacity="0.9"
+            strokeLinecap="round"
+          />
+          {/* Layer 3: Offset inner glow line */}
+          <path
+            d="M 200 135 C 160 55 40 85 40 175 C 40 265 200 375 200 375 C 200 375 360 265 360 175 C 360 85 240 55 200 135 Z"
+            fill="none"
+            stroke="#c9a84c"
+            strokeWidth="1"
+            opacity="0.5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        <div
+          ref={nameRef}
+          className="font-cormorant"
+          style={{
+            position: "absolute",
+            zIndex: 2,
+            top: "50%", /* Position perfectly in the widest part of the heart */
+            transform: "translateY(-50%)",
+            fontSize: "clamp(32px, 6vw, 64px)",
+            fontWeight: 600,
+            color: "#f5f0e8",
+            letterSpacing: 4,
+            textShadow: "0 0 15px rgba(201,168,76,0.6)",
+          }}
+        />
+      </div>
 
       {/* Phase 2: Message */}
       <div
@@ -210,7 +303,7 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
           padding: "0 20px",
         }}
       >
-        babyy, I made you something.
+        i still can't believe it's already been...
       </div>
 
       {/* Phase 3 & 4: "4" and text */}
@@ -253,7 +346,11 @@ export default function OpeningSequence({ onComplete }: OpeningSequenceProps) {
             textAlign: "center",
           }}
         >
-          months of you, my love.
+          months down.
+          <br />
+          <span className="font-dancing" style={{ fontSize: "1.2em", opacity: 0.8, letterSpacing: 1 }}>
+            with a lifetime left to go.
+          </span>
         </div>
       </div>
     </div>

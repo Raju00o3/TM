@@ -10,19 +10,32 @@ interface SorryLetterProps {
 
 const SORRY_TEXT = `misu.
 
-I know I've gone quiet sometimes when I should've talked.
+I know I'm not always good with words.
+And sometimes I mess up in ways I don't even realize until later.
 I overthink — you know this about me — and sometimes I disappear into my own head
 and forget that you're right there, waiting.
 
 I know I didn't always give you the time you deserved.
-I got caught up. I chose wrong sometimes. I'm working on that.
+I should have shown up better in the moments that mattered to you.
+Especially your birthday. You deserved to have me there at midnight, and I wasn't.
 
-And your birthday. I wasn't there at 12.
-I still think about that. You deserved to have me there at midnight, and I wasn't.
-I'm sorry for that. Genuinely.
+I'm sorry, Misri. Genuinely.
 
-I'm not great at saying this stuff out loud.
-So I built this instead.
+You deserve someone who gets it right every time.
+I'm not that guy yet. But I'm trying to be. For you.
+
+Because you never gave up on us, not even once.
+You baked me a cheesecake before you even knew me properly.
+You believed in me when I didn't believe in myself.
+You always put me first, even when I forget to say thank you.
+
+You understand me even when I can't find the words.
+You are the most caring person I have ever known.
+
+I promise to show up better.
+I promise to be the guy who gets it right.
+
+Thank you for loving me exactly as I am.
 
 For you, babyy. Always. ❤️
 

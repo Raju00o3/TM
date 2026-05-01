@@ -10,7 +10,7 @@ interface LadyLuckRevealProps {
 
 const LUCK_LINES = [
   "I didn't even have a job when i met you.",
-  "within a week of you walking into my life — i had two.",
+  "within a week of you walking into my life i had two.",
   "people call it coincidence.",
   "but i don't believe in luck anymore.",
   "i just believe in you, my lady luck. 🌹🫶",
