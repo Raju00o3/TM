@@ -231,7 +231,7 @@ export default function FinaleSequence() {
                   letterSpacing: 6,
                 }}
               >
-                ✦ ADMIT ONE ✦
+                ✦ YOU'RE INVITED, MY LOVE ✦
               </span>
             </div>
 
