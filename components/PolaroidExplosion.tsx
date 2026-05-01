@@ -102,8 +102,8 @@ export default function PolaroidExplosion({ onAllOpened }: PolaroidExplosionProp
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.6, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.8, exit: { duration: 0.5 } }}
+            exit={{ opacity: 0, y: -10, transition: { duration: 0.5 } }}
+            transition={{ duration: 0.8 }}
             className="font-caveat"
             style={{
               position: "fixed",
