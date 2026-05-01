@@ -8,7 +8,7 @@ interface SorryLetterProps {
   onClose: () => void;
 }
 
-const SORRY_TEXT = `misu.
+const SORRY_TEXT = `Hey misu.
 
 I know I'm not always good with words.
 And sometimes I mess up in ways I don't even realize until later.
@@ -19,7 +19,7 @@ I know I didn't always give you the time you deserved.
 I should have shown up better in the moments that mattered to you.
 Especially your birthday. You deserved to have me there at midnight, and I wasn't.
 
-I'm sorry, Misri. Genuinely.
+I'm sorry, Misri.
 
 You deserve someone who gets it right every time.
 I'm not that guy yet. But I'm trying to be. For you.
@@ -47,6 +47,7 @@ export default function SorryLetter({ onComplete, onClose }: SorryLetterProps) {
   const [showPaperPlane, setShowPaperPlane] = useState(false);
   const indexRef = useRef(0);
   const onCompleteRef = useRef(onComplete);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Keep ref in sync without re-triggering the effect
   useEffect(() => {
@@ -77,6 +78,13 @@ export default function SorryLetter({ onComplete, onClose }: SorryLetterProps) {
     return () => clearInterval(interval);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Auto-scroll to bottom as text types
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [displayedText]);
+
   return (
     <div
       style={{
@@ -91,20 +99,66 @@ export default function SorryLetter({ onComplete, onClose }: SorryLetterProps) {
       }}
       onClick={isTypingComplete ? onClose : undefined}
     >
+      {/* Scrollable text container with fade masks */}
       <div
-        className="font-cormorant"
         style={{
+          position: "relative",
           maxWidth: 600,
-          fontSize: "clamp(16px, 2.2vw, 22px)",
-          lineHeight: 1.9,
-          color: "#f5f0e8",
-          whiteSpace: "pre-wrap",
-          textAlign: "left",
-          letterSpacing: 0.3,
+          maxHeight: "75vh",
+          width: "100%",
         }}
       >
-        {displayedText}
-        {!isTypingComplete && <span className="typewriter-cursor" />}
+        {/* Top fade mask */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 40,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 100%)",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Scrollable text */}
+        <div
+          ref={scrollRef}
+          className="font-cormorant"
+          style={{
+            maxHeight: "75vh",
+            overflowY: "auto",
+            fontSize: "clamp(16px, 2.2vw, 22px)",
+            lineHeight: 1.9,
+            color: "#f5f0e8",
+            whiteSpace: "pre-wrap",
+            textAlign: "left",
+            letterSpacing: 0.3,
+            paddingTop: 20,
+            paddingBottom: 40,
+            scrollBehavior: "smooth",
+            msOverflowStyle: "none",
+            scrollbarWidth: "none",
+          }}
+        >
+          {displayedText}
+          {!isTypingComplete && <span className="typewriter-cursor" />}
+        </div>
+
+        {/* Bottom fade mask */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 50,
+            background: "linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%)",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        />
       </div>
 
       {/* Paper plane animation */}

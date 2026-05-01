@@ -267,7 +267,12 @@ export default function FinaleSequence() {
                 </span>
               </div>
               <div>
-                <strong>Dress code:</strong> anything — you look magnificent in all of it
+                <strong>Dress code:</strong>{" "}
+                <span style={{ color: "#d4788a", fontWeight: 500 }}>red, if you're feeling it.</span>
+                <br />
+                <span style={{ opacity: 0.6, fontSize: "0.85em", fontStyle: "italic" }}>
+                  but honestly? you make everything look magnificent, misu.
+                </span>
               </div>
             </div>
 
