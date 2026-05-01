@@ -27,7 +27,8 @@ export default function MagnificentMontage({ onClose }: MagnificentMontageProps)
   }, [allSlides.length]);
 
   useEffect(() => {
-    timerRef.current = setInterval(advanceSlide, 3000);
+    // Increased duration slightly for the new poetic narrative
+    timerRef.current = setInterval(advanceSlide, 3500);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
@@ -64,46 +65,79 @@ export default function MagnificentMontage({ onClose }: MagnificentMontageProps)
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
             style={{
               position: "absolute",
               inset: 0,
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            {/* Photo */}
-            <img
-              src={allSlides[currentIndex].src}
-              alt=""
+            {/* Cinematic Blurred Background */}
+            <div
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                filter: "brightness(0.6)",
-              }}
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
+                position: "absolute",
+                inset: -50,
+                backgroundImage: `url(${allSlides[currentIndex].src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                filter: "blur(40px) brightness(0.3)",
+                zIndex: 0,
               }}
             />
 
-            {/* Overlay text */}
+            {/* Uncropped Photo with Ken Burns Effect */}
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "75vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 1,
+                padding: "20px",
+              }}
+            >
+              <motion.img
+                src={allSlides[currentIndex].src}
+                alt=""
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.08 }}
+                transition={{ duration: 4, ease: "linear" }}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+                  borderRadius: 4,
+                }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = "none";
+                }}
+              />
+            </div>
+
+            {/* Elegant Subtitle Text Area */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
               className="font-cormorant"
               style={{
-                position: "absolute",
-                fontSize: "clamp(36px, 6vw, 72px)",
-                fontWeight: 600,
-                color: "#ffffff",
-                textShadow: "0 2px 20px rgba(0,0,0,0.5)",
-                letterSpacing: 4,
-                textTransform: "lowercase",
+                position: "relative",
+                zIndex: 2,
+                marginTop: "2vh",
+                fontSize: "clamp(24px, 4vw, 36px)",
+                fontWeight: 500,
+                color: "#f5f0e8",
+                textShadow: "0 2px 10px rgba(0,0,0,0.8)",
+                letterSpacing: 2,
                 textAlign: "center",
                 padding: "0 20px",
+                maxWidth: 800,
               }}
             >
               {allSlides[currentIndex].overlayText}
@@ -137,9 +171,9 @@ export default function MagnificentMontage({ onClose }: MagnificentMontageProps)
               maxWidth: 500,
             }}
           >
-            every single one, panda.
+            is simply... you.
             <br />
-            every outfit. every version of you.
+            every outfit. every version.
             <br />
             <br />
             <span style={{ fontWeight: 600, fontSize: "clamp(24px, 3.5vw, 38px)" }}>
@@ -153,43 +187,19 @@ export default function MagnificentMontage({ onClose }: MagnificentMontageProps)
       {isComplete && (
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
+          animate={{ opacity: 0.6 }}
           transition={{ duration: 1 }}
           className="font-caveat"
           style={{
             position: "fixed",
             bottom: 30,
-            fontSize: 14,
+            fontSize: 16,
             color: "#f5f0e8",
+            zIndex: 10,
           }}
         >
           tap anywhere to close
         </motion.div>
-      )}
-
-      {/* Progress dots */}
-      {!showFinal && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: 30,
-            display: "flex",
-            gap: 6,
-          }}
-        >
-          {allSlides.map((_, i) => (
-            <div
-              key={i}
-              style={{
-                width: 6,
-                height: 6,
-                borderRadius: "50%",
-                background: i === currentIndex ? "#f5f0e8" : "rgba(245,240,232,0.3)",
-                transition: "background 0.3s",
-              }}
-            />
-          ))}
-        </div>
       )}
     </motion.div>
   );

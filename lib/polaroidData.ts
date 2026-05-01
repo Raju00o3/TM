@@ -38,7 +38,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "2006 🌸",
     date: "",
     compliment:
-      "look at this cutie pie omg 😭 you were THAT girl even back then panda — nothing has changed fr, you've always been this 🤍",
+      "look at this cutie pie omg 😭 you were THAT girl even back then panda  nothing has changed fr, you've always been this 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -104,7 +104,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "my panda 😮‍💨",
     date: "",
     compliment:
-      "I am FLAT. every single time, no thoughts, just 😮‍💨 you in a saree is something else panda — I genuinely melt and I always want more. always.",
+      "I am FLAT. every single time, no thoughts, just 😮‍💨 you in a saree is something else panda . I genuinely melt and I always want more. always.",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -168,7 +168,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "desi queen 🤍",
     date: "",
     compliment:
-      "the kurta, the haveli, the whole scene — this looks like a movie poster and you're the lead. I'd watch it on repeat, panda 😭",
+      "the kurta, the haveli, the whole scene this looks like a movie poster and you're the lead. I'd watch it on repeat, panda 😭",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -202,7 +202,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "🔥 literally",
     date: "",
     compliment:
-      "okay this is FIRE 🔥 you are hot, you know that right? western fit and you're literally just... mine. how are you even real panda",
+      "okay this is FIRE 🔥 you are hot, you know that right? western fit and you're literally just... mine.",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -218,7 +218,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "mine.",
     date: "",
     compliment:
-      "the red, the confidence, the whole aura — I'm actually speechless. you walked in looking like THAT and expected me to function normally? 🔥",
+      "the red, the confidence, the whole aura  I'm actually speechless. you walked in looking like THAT and expected me to function normally? 🔥",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -234,7 +234,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "city lights ✨",
     date: "",
     compliment:
-      "you and the city lights behind you — but honestly? you outshine all of them. the whole skyline is just your backdrop, panda ✨",
+      "you and the city lights behind you but honestly? you outshine all of them. the whole skyline is just your backdrop, Misu ✨",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -270,7 +270,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "this one 😭",
     date: "",
     compliment:
-      "this is my favourite you — unfiltered, natkhatti, completely yourself 😭 I never want to forget this. ever. this moment is mine to keep. 🤍",
+      "this is my favourite you  unfiltered, natkhatti, completely yourself 😭 I never want to forget this. ever. this moment is mine to keep. 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -286,7 +286,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "my fav you",
     date: "",
     compliment:
-      "no makeup, no filter, just you being you — and that's genuinely my favourite version. the one who laughs too loud and doesn't care 🤍",
+      "no makeup, no filter, just you being you  and that's genuinely my favourite version. the one who laughs too loud and doesn't care 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -302,7 +302,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "natkhat 🤍",
     date: "",
     compliment:
-      "the way you move, the way you laugh in this — I could watch this on loop forever. you're chaos in the most beautiful way, panda 😭",
+      "the way you move, the way you laugh in this  I could watch this on loop forever. you're chaos in the most beautiful way, panda 😭",
     isSpecial: false,
     specialType: null,
     isVideo: true,
@@ -352,7 +352,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "this day",
     date: "",
     compliment:
-      "the fact that we exist in the same photo, in the same frame, breathing the same air — that's my whole world right there 🤍",
+      "the fact that we exist in the same photo, in the same frame, breathing the same air , that's my whole world right there 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -416,7 +416,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "home 🤍",
     date: "",
     compliment:
-      "this one hits different. late night, just us two, no one else around. you smiled and I knew — this is home. you are home, panda 🤍",
+      "this one hits different. late night, just us two, no one else around. you smiled and I knew this is home. you are home, panda 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -432,7 +432,7 @@ export const polaroidData: PolaroidItem[] = [
     label: "rooftop 🤍",
     date: "",
     compliment:
-      "up on that rooftop with the kites flying around us — that whole day felt like a dream. the kind I never want to wake up from 🤍",
+      "up on that rooftop with the kites flying around us , that whole day felt like a dream. the kind I never want to wake up from 🤍",
     isSpecial: false,
     specialType: null,
     isVideo: false,
@@ -506,15 +506,14 @@ export const polaroidData: PolaroidItem[] = [
   },
 ];
 
-/** Solo photo sources for the Magnificent Montage */
 export const soloPhotoSources = [
-  { src: "/media/childhood/childhood_01.jpg", overlayText: "always been her." },
-  { src: "/media/childhood/childhood_02.jpg", overlayText: "always been her." },
-  { src: "/media/traditional/traditional_01.jpg", overlayText: "timeless." },
-  { src: "/media/traditional/traditional_02.jpg", overlayText: "timeless." },
-  { src: "/media/traditional/traditional_05.jpg", overlayText: "desi queen." },
-  { src: "/media/western/western_01.jpg", overlayText: "fire." },
-  { src: "/media/western/western_02.jpg", overlayText: "fire." },
-  { src: "/media/formal/formal_01.jpg", overlayText: "the whole room turns." },
-  { src: "/media/casual/casual_01.jpg", overlayText: "my favourite." },
+  { src: "/media/childhood/childhood_01.jpg", overlayText: "even back then..." },
+  { src: "/media/childhood/childhood_02.jpg", overlayText: "you had that same smile." },
+  { src: "/media/traditional/traditional_01.jpg", overlayText: "then you grew up." },
+  { src: "/media/traditional/traditional_02.jpg", overlayText: "and honestly?" },
+  { src: "/media/traditional/traditional_05.jpg", overlayText: "you take my breath away." },
+  { src: "/media/western/western_01.jpg", overlayText: "every single time." },
+  { src: "/media/western/western_02.jpg", overlayText: "in every single outfit." },
+  { src: "/media/formal/formal_01.jpg", overlayText: "you own every room you walk into." },
+  { src: "/media/casual/casual_01.jpg", overlayText: "but my absolute favourite..." },
 ];
