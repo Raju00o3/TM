@@ -22,7 +22,7 @@ export default function AudioManager() {
       if (!hasInteracted) {
         setHasInteracted(true);
         audio.play().catch(() => {
-          /* file might not exist yet */
+          console.warn("Background music (ambient.mp3) not found. This is fine.");
         });
       }
     };

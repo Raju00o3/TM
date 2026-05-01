@@ -2,15 +2,20 @@
 
 import { useState, useCallback } from "react";
 import { AnimatePresence } from "motion/react";
+import SecretGate from "@/components/SecretGate";
 import LoadingScreen from "@/components/LoadingScreen";
 import OpeningSequence from "@/components/OpeningSequence";
 import PolaroidExplosion from "@/components/PolaroidExplosion";
 import FinaleSequence from "@/components/FinaleSequence";
 
-type AppPhase = "loading" | "opening" | "explosion" | "finale";
+type AppPhase = "gate" | "loading" | "opening" | "explosion" | "finale";
 
 export default function Home() {
-  const [phase, setPhase] = useState<AppPhase>("loading");
+  const [phase, setPhase] = useState<AppPhase>("gate");
+
+  const handleGateUnlocked = useCallback(() => {
+    setPhase("loading");
+  }, []);
 
   const handleLoadingComplete = useCallback(() => {
     setPhase("opening");
@@ -35,6 +40,10 @@ export default function Home() {
       }}
     >
       <AnimatePresence mode="wait">
+        {phase === "gate" && (
+          <SecretGate key="gate" onUnlocked={handleGateUnlocked} />
+        )}
+
         {phase === "loading" && (
           <LoadingScreen
             key="loading"
