@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+/* ============================================
+   TAILWIND V4 THEME CONFIGURATION
+   ============================================ */
+@theme {
+  --color-background: #0a0a0a;
+  --color-cream: #f5f0e8;
+  --color-gold: #c9a84c;
+  --color-blush: #f2b8b8;
+  --color-rose: #d4788a;
+  --color-muted-rose: #e8b4bc;
+  --color-polaroid-white: #fafaf5;
+
+  --font-cormorant: var(--font-cormorant-var), serif;
+  --font-dancing: var(--font-dancing-var), cursive;
+  --font-caveat: var(--font-caveat-var), cursive;
+  --font-dm: var(--font-dm-var), sans-serif;
+}
+
+/* ============================================
+   GLOBAL RESET & BASE STYLES
+   ============================================ */
+
+* {
+  cursor: none !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  color: #f5f0e8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbars everywhere */
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+::selection {
+  background: rgba(212, 120, 138, 0.3);
+  color: #f5f0e8;
+}
+
+/* ============================================
+   POLAROID STYLES
+   ============================================ */
+.polaroid-card {
+  background: #fafaf5;
+  color: #2a2a2a;
+  position: absolute;
+  will-change: transform;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.polaroid-shadow {
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid-shadow-hover {
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   GLOW BORDERS FOR SPECIAL POLAROIDS
+   ============================================ */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px 2px var(--glow-color); }
+  50% { box-shadow: 0 0 16px 6px var(--glow-color); }
+}
+
+.glow-gold {
+  --glow-color: rgba(201, 168, 76, 0.5);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.glow-pink {
+  --glow-color: rgba(212, 120, 138, 0.5);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.glow-black {
+  --glow-color: rgba(100, 100, 100, 0.4);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
+   FILM STRIP TEXTURE FOR VIDEO POLAROIDS
+   ============================================ */
+.film-strip-left,
+.film-strip-right {
+  position: absolute;
+  top: 8px;
+  width: 10px;
+  height: calc(100% - 48px);
+  background: repeating-linear-gradient(
+    to bottom,
+    #3d2b1f 0px,
+    #3d2b1f 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.film-strip-left {
+  left: 8px;
+}
+
+.film-strip-right {
+  right: 8px;
+}
+
+/* ============================================
+   TYPEWRITER CURSOR
+   ============================================ */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #f5f0e8;
+  margin-left: 2px;
+  animation: blink-cursor 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   TICKET STYLES
+   ============================================ */
+.ticket-grain {
+  position: relative;
+}
+
+.ticket-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-foil-text {
+  background: linear-gradient(
+    90deg,
+    #c9a84c 0%,
+    #e8d48a 25%,
+    #c9a84c 50%,
+    #e8d48a 75%,
+    #c9a84c 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s linear infinite;
+}
+
+.perforated-edge {
+  border-left: 3px dashed rgba(139, 119, 80, 0.5);
+}
+
+/* ============================================
+   WAX SEAL
+   ============================================ */
+.wax-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #c43e3e, #8b2020);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none !important;
+  transition: transform 0.2s ease;
+}
+
+.wax-seal:hover {
+  transform: scale(1.05);
+}
+
+.wax-seal:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   HEART TRAIL PARTICLE
+   ============================================ */
+.heart-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  font-size: 8px;
+  will-change: transform, opacity;
+}
+
+/* ============================================
+   OVERLAY BACKDROP
+   ============================================ */
+.polaroid-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+}
+
+/* ============================================
+   PAPER PLANE SVG
+   ============================================ */
+@keyframes fly-across {
+  0% {
+    transform: translate(-100px, 0) rotate(-10deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), -80px) rotate(5deg);
+    opacity: 0;
+  }
+}
+
+.paper-plane-fly {
+  animation: fly-across 3s ease-in-out forwards;
+}
+
+/* ============================================
+   SHIMMER ANIMATION
+   ============================================ */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200vw); }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .polaroid-card {
+    width: 160px !important;
+    height: 190px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .polaroid-card {
+    width: 130px !important;
+    height: 155px !important;
+  }
+}

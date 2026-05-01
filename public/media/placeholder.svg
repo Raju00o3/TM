@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" fill="#e0ddd5">
+  <rect width="600" height="600"/>
+  <text x="50%" y="45%" font-family="system-ui" font-size="20" fill="#999" text-anchor="middle">Replace with real photo</text>
+  <text x="50%" y="55%" font-family="system-ui" font-size="14" fill="#bbb" text-anchor="middle">See README.md for details</text>
+</svg>
